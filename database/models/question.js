@@ -12,6 +12,6 @@ const QuestionSchema = new Schema({
   answers: [ImagesSchema],
 });
 
-const question = mongoose.model("question", QuestionSchema);
+const Question = mongoose.model("question", QuestionSchema);
 
-module.exports = question;
+module.exports = Question;
