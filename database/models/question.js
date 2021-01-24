@@ -7,9 +7,9 @@ const ImagesSchema = new Schema({
 });
 
 const QuestionSchema = new Schema({
-  question: String,
-  keyword: String,
-  answers: [ImagesSchema],
+  question: { type: String, required: true },
+  keyword: { type: String, required: true },
+  answers: [{ type: ImagesSchema, required: false }],
 });
 
 const Question = mongoose.model("question", QuestionSchema);
