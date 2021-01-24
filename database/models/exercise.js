@@ -4,7 +4,7 @@ const Schema = moongose.Schema;
 
 const ExerciseSchema = new Schema({
   name: String,
-  iamges: [ImagesSchema],
+  images: [ImagesSchema],
   questions: [{ type: moongose.Schema.Types.ObjectId, ref: "question" }],
 });
 

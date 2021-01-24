@@ -6,11 +6,13 @@ const TesterSchema = new Schema({
   name: String,
   email: String,
   password: String,
-  Tests: { type: mongoose.Schema.Types.ObjectId, ref: "test" },
-  examinees: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "examinee",
-  },
+  Tests: [{ type: mongoose.Schema.Types.ObjectId, ref: "test" }],
+  examinees: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "examinee",
+    },
+  ],
 });
 
 //creating tester model
