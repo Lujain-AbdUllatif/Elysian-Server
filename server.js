@@ -4,10 +4,9 @@ const app = express();
 const cors = require("cors");
 const PORT = process.env.PORT;
 const Connection = require("./database/connection");
-const Question = require("./database/models/question");
 
-//const examineeRouter = require("./routers/examineeRouter");
-//const testerRouter = require("./routers/testerRouter");
+const examineeRouter = require("./routers/examineeRouter");
+const testerRouter = require("./routers/testerRouter");
 
 app.use(cors());
 app.use(express.json());
@@ -16,8 +15,8 @@ app.get("/", function (req, res) {
   res.send("Hello World");
 });
 
-//app.all(/examinee/, authExaminee, examineeRouter);
-//app.all(/tester/,authTester, testerRouter);
+app.all(/examinee/, examineeRouter);
+app.all(/tester/, testerRouter);
 
 //routes
 // app.post("/add-question", async (req, res) => {
