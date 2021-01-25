@@ -4,7 +4,6 @@ const tokenGenerator = require("../utils").tokenGenerator;
 const Tester = require("../../database/models/tester");
 
 const signup = async (req, res) => {
-  console.log("RECIEVEDDDDDDDDDDDDDDDDDDDDDDDDD");
   const { name, email, pass } = req.body;
   try {
     const found = await Tester.findOne({ email });
