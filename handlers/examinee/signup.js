@@ -20,7 +20,7 @@ const signup = async (req, res) => {
         password: hash,
       });
       newExaminee.save().then((record) => {
-        const token = tokenGenerator(record._id);
+        const token = tokenGenerator({ id: record._id, role: "examinee" });
         const objToSend = {
           token,
           msg: "email created successfully",
