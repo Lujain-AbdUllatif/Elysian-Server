@@ -4,8 +4,8 @@ const tokenGenerator = require("../utils").tokenGenerator;
 const Tester = require("../../database/models/tester");
 
 const signup = async (req, res) => {
-  console.log("RECIEVEDDDDDDDDDDDDDDDDDDDDDDDDD");
   const { name, email, pass } = req.body;
+
   try {
     const found = await Tester.findOne({ email });
     if (found) {
@@ -23,7 +23,7 @@ const signup = async (req, res) => {
         newTester.save().then((record) => {
           const token = tokenGenerator({ id: record._id, role: "tester" });
           const objToSend = {
-            access_token,
+            access_token: token,
             msg: "email created successfully",
           };
           return res.status(200).json(objToSend);
