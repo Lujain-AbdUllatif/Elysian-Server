@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
 //examinee handlers imports
-const auth = require("../handlers/examinee/auth");
+const verifyUser = require("../middlewares/auth");
 const signup = require("../handlers/examinee/signup");
 
 //routes

@@ -8,6 +8,6 @@ const addTest = require("../handlers/tester/addTest");
 
 //routes
 router.post("/tester/signup", signup);
-// router.post("/tester/test", addTest);
+router.post("/tester/test", addTest);
 
 module.exports = router;
