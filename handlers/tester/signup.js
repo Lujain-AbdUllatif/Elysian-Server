@@ -22,7 +22,7 @@ const signup = async (req, res) => {
         newTester.save().then((record) => {
           const token = tokenGenerator({ id: record._id, role: "tester" });
           const objToSend = {
-            token,
+            access_token,
             msg: "email created successfully",
           };
           return res.status(200).json(objToSend);
