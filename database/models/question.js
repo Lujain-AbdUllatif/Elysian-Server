@@ -1,17 +1,13 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-
-const ImagesSchema = new Schema({
-  number: Number,
-  url: String,
-});
+const ImagesSchema = require("./schemas/ImagesSchema");
 
 const QuestionSchema = new Schema({
-  question: String,
-  keyword: String,
-  answers: [ImagesSchema],
+  question: { type: String, required: true },
+  keyword: { type: String, required: true },
+  answers: [{ type: ImagesSchema, required: false }],
 });
 
-const question = mongoose.model("question", QuestionSchema);
+const Question = mongoose.model("question", QuestionSchema);
 
-module.exports = question;
+module.exports = Question;
