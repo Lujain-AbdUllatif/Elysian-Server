@@ -1,4 +1,5 @@
 const bcrypt = require("bcryptjs");
+const tokenGenerator = require("../utils").tokenGenerator;
 //models imports
 const Examinee = require("../../database/models/examinee");
 
@@ -18,8 +19,13 @@ const signup = async (req, res) => {
         email,
         password: hash,
       });
-      newExaminee.save().then(() => {
-        return res.status(200).json("email created successfully");
+      newExaminee.save().then((record) => {
+        const token = tokenGenerator(record._id);
+        const objToSend = {
+          token,
+          msg: "email created successfully",
+        };
+        return res.status(200).json(objToSend);
       });
     });
 };
