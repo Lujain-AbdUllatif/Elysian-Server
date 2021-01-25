@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 
 //tester handlers imports
-const auth = require("../handlers/tester/auth");
 const signup = require("../handlers/tester/signup");
 const addTest = require("../handlers/tester/addTest");
 const getTests = require("../handlers/tester/getTests");
