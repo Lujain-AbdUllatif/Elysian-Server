@@ -5,6 +5,7 @@ const Examinee = require("../../database/models/examinee");
 
 const signup = async (req, res) => {
   const { name, email, pass } = req.body;
+
   try {
     const found = await Examinee.findOne({ email });
     if (found) {
@@ -22,7 +23,7 @@ const signup = async (req, res) => {
         newExaminee.save().then((record) => {
           const token = tokenGenerator({ id: record._id, role: "examinee" });
           const objToSend = {
-            token,
+            access_token: token,
             msg: "email created successfully",
           };
           return res.status(200).json(objToSend);

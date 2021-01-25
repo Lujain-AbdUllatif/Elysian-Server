@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
+const handleError = require("./middlewares/err");
 const cors = require("cors");
 const PORT = process.env.PORT;
 const Connection = require("./database/connection");
@@ -12,10 +13,12 @@ const testerRouter = require("./routers/testerRouter");
 app.use(cors());
 app.use(express.json());
 
-app.get("/", function (req, res) {
-  res.send("Hello World");
+/***************************************/
+const verifyUser = require("./middlewares/auth");
+app.get("/", verifyUser("tester"), function (req, res) {
+  res.status(200).send("Hello World");
 });
-
+/***************************************/
 app.all(/examinee/, examineeRouter);
 app.all(/tester/, testerRouter);
 
@@ -39,3 +42,5 @@ app.listen(PORT, () => {
   Connection();
   console.log(`Server started`);
 });
+
+app.use(handleError);
