@@ -1,9 +1,9 @@
-const examineeRouter = require("express").Router();
+const router = require("express").Router();
 
 //examinee handlers imports
 const auth = require("../handlers/examinee/auth");
-const signup = require("../handlers/tester/signup");
+const signup = require("../handlers/examinee/signup");
 
 //routes
-testerRouter.post("/examinee/signup", signup);
-module.exports = testerRouter;
+router.post("/examinee/signup", signup);
+module.exports = router;

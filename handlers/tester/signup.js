@@ -13,11 +13,10 @@ const signup = async (req, res) => {
     .genSalt(10)
     .then((salt) => bcrypt.hash(pass, salt))
     .then((hash) => {
-      console.log("HAAAAAAAAAAASH: ", hash);
       const newTester = new Tester({
         name,
         email,
-        pass: hash,
+        password: hash,
       });
       newTester.save().then(() => {
         return res.status(200).json("email created successfully");

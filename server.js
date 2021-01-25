@@ -15,7 +15,7 @@ app.get("/", function (req, res) {
   res.send("Hello World");
 });
 
-app.all(/examinee/, authExaminee, examineeRouter);
+app.all(/examinee/, examineeRouter);
 app.all(/tester/, testerRouter);
 
 //routes

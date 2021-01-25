@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const TesterSchema = new Schema({
   name: String,
   email: String,
-  pass: String,
+  password: String,
   Tests: [{ type: mongoose.Schema.Types.ObjectId, ref: "test" }],
   examinees: [
     {
