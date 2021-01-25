@@ -1,6 +1,6 @@
 const moongose = require("mongoose");
 const Schema = moongose.Schema;
-const ImagesSchema = require("./question");
+const ImagesSchema = require("./schemas/ImagesSchema");
 
 const ExerciseSchema = new Schema({
   name: String,
