@@ -4,12 +4,18 @@ const Question = require("../../database/models/question");
 
 const getAllQuestions = async (req, res) => {
   const { exerciseid } = req.params;
+
   try {
     const exercise = await Exercise.findOne({ _id: exerciseid });
-    const questions = exercise.questions.map(async (questionId) => {
-      return await Question.findOne({ _id: questionId });
+    console.log("exercise is: ", exercise);
+    const questionsIdsArr = exercise.questions;
+    const questionsRecords = await Question.find({
+      _id: {
+        $in: questionsIdsArr,
+      },
     });
-    res.status(200).json(questions);
+    console.log("questions records: ", questionsRecords);
+    res.status(200).json(questionsRecords);
   } catch (err) {
     res.status(500).json("server error");
   }
