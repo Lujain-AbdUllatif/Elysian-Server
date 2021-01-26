@@ -1,10 +1,11 @@
 const Test = require("../../database/models/test");
+
 const addTest = async (req, res, next) => {
   const saveTest = new Test({
     name: req.body.name,
     time: req.body.time,
     Upcoming_test: req.body.Upcoming_test,
-    exercises: req.body.exercises,
+    exercises: req.idsArray,
   });
 
   try {

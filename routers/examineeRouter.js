@@ -10,4 +10,10 @@ const getExercise = require("../handlers/examinee/getExercise");
 router.post("/examinee/signup", signup);
 router.get("/examinee/getTest", getTest);
 router.get("/examinee/getExercise", getExercise);
+const signin = require("../handlers/examinee/signin");
+
+//routes
+
+router.post("/examinee/signin", signin);
+
 module.exports = router;
