@@ -5,7 +5,6 @@ const Tester = require("../../database/models/tester");
 
 const signup = async (req, res) => {
   const { name, email, pass } = req.body;
-
   try {
     const found = await Tester.findOne({ email });
     if (found) {
