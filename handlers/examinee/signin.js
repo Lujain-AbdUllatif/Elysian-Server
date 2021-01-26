@@ -1,17 +1,20 @@
 require("dotenv").config();
+const ExamineeModel = require("../../database/models/examinee");
 const bcrypt = require("bcryptjs");
-const TesterModel = require("../../database/models/tester");
 const { tokenGenerator } = require("../utils");
 
 const signin = (req, res, next) => {
   const { email, password } = req.body;
   if (email && password) {
-    TesterModel.findOne({ email })
+    ExamineeModel.findOne({ email })
       .then((response) => {
+        console.log(response);
         if (response) {
           const { _id: id, password: dbPassword } = response;
+          console.log(id, dbPassword);
           bcrypt.compare(password, dbPassword).then((match) => {
-            if (!match) res.status(403).send("Passwords DON'T match");
+            if (!match)
+              if (!match) res.status(403).send("Passwords DON'T match");
             const access_token = tokenGenerator({ id, role: "tester" });
             res.status(200).send(access_token);
           });
