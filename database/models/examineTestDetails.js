@@ -14,4 +14,5 @@ const examineTestDetails = moongose.model(
   "examineeTestDetails",
   examineTestDetailsSchema
 );
+
 module.exports = examineTestDetails;
