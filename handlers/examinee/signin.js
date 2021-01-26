@@ -8,10 +8,8 @@ const signin = (req, res, next) => {
   if (email && password) {
     ExamineeModel.findOne({ email })
       .then((response) => {
-        console.log(response);
         if (response) {
           const { _id: id, password: dbPassword } = response;
-          console.log(id, dbPassword);
           bcrypt.compare(password, dbPassword).then((match) => {
             if (!match)
               if (!match) res.status(403).send("Passwords DON'T match");
