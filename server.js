@@ -5,7 +5,6 @@ const handleError = require("./middlewares/err");
 const cors = require("cors");
 const PORT = process.env.PORT;
 const Connection = require("./database/connection");
-Connection();
 
 const examineeRouter = require("./routers/examineeRouter");
 const testerRouter = require("./routers/testerRouter");
