@@ -24,7 +24,7 @@ const getAllExaminees = async (req, res, next) => {
     return res.status(200).json(examineesObj);
   } catch (error) {
     console.log(error);
-    return next(errorGenerator(400, "Server Error"));
+    return next(errorGenerator(500, "Server Error"));
   }
 };
 

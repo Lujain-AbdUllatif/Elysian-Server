@@ -5,17 +5,16 @@ const jwt = require("jsonwebtoken");
 const verifyUser = (userRole) => {
   return (req, res, next) => {
     const { access_token } = req.headers;
-    console.log(access_token);
     if (access_token) {
       try {
         const { id, role } = jwt.verify(access_token, SECRET);
         if (role === userRole) {
           req.body.id = id;
+          req.body.role = role;
+          console.log("AUTH >>", id, role);
           next();
         } else {
-          const error = new Error(
-            `Not a ${userRole}, you don't have permission`
-          );
+          const error = new Error(`Not ${userRole}, you don't have permission`);
           error.status = 403;
           next(error);
         }
