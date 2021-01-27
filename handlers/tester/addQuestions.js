@@ -13,7 +13,7 @@ const addQuestions = async (req, res, next) => {
         });
         try {
           const newQuestion = await ques.save();
-          // console.log("===>", newQuestion);
+          console.log("===>", newQuestion);
           return newQuestion;
         } catch (err) {
           console.log(err);

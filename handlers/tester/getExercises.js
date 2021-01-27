@@ -2,6 +2,7 @@ const Exercise = require("../../database/models/exercise");
 
 const getAllExercises = (req, res, next) => {
   Exercise.find()
+    .populate("questions")
     .then((exercises) => {
       res.json({
         confirmation: "success",

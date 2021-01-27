@@ -1,6 +1,14 @@
 const Test = require("../../database/models/test");
 const getAllTests = (req, res, next) => {
   Test.find()
+    .populate({
+      path: "exercises",
+      populate: {
+        path: "questions",
+        model: "question",
+      },
+    })
+    // .populate("exercises")
     .then((tests) => {
       res.status(201).json({
         confirmation: "success",
