@@ -4,7 +4,7 @@ const addTest = async (req, res, next) => {
   const saveTest = new Test({
     name: req.body.name,
     time: req.body.time,
-    Upcoming_test: req.body.Upcoming_test,
+    // Upcoming_test: req.body.Upcoming_test,
     exercises: req.idsArray,
   });
 
