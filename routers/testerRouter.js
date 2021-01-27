@@ -15,7 +15,7 @@ router.post("/tester/signup", signup);
 // router.post("/tester/test", addTest);
 router.post("/tester/signin", handleSignIn);
 router.get("/tester/test", getTests);
-router.get("/tester/questions/:exerciseid", getAllQuestions);
+router.post("/tester/questions", getAllQuestions);
 router.post("/tester/addExercise", addQuestions, addExercise);
 router.get("/tester/getExercises", getExercises);
 
