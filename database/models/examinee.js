@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Schema = mongose.Schema;
+const Schema = mongoose.Schema;
 
 //creating Examinee schema
 const ExamineeSchema = new Schema({
@@ -7,7 +7,7 @@ const ExamineeSchema = new Schema({
   email: { type: String, required: true },
   password: { type: String, required: true },
   done_tests: [
-    { type: mongoose.Schema.Types.ObjectId, ref: "examineetestdetails" },
+    { type: mongoose.Schema.Types.ObjectId, ref: "examineeTestDetail" },
   ],
   Upcoming_test: { type: mongoose.Schema.Types.ObjectId, ref: "test" },
 });
