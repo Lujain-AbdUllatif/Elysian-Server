@@ -6,7 +6,7 @@ const TesterSchema = new Schema({
   name: String,
   email: String,
   password: String,
-  Tests: [{ type: mongoose.Schema.Types.ObjectId, ref: "test" }],
+  tests: [{ type: mongoose.Schema.Types.ObjectId, ref: "test" }],
   examinees: [
     {
       type: mongoose.Schema.Types.ObjectId,
