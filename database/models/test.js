@@ -5,7 +5,6 @@ const Schema = mongoose.Schema;
 const TestSchema = new Schema({
   name: String,
   time: Number,
-  Upcoming_test: String,
   exercises: [{ type: mongoose.Schema.Types.ObjectId, ref: "exercise" }],
 });
 
