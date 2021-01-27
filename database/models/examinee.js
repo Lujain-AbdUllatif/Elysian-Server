@@ -1,17 +1,18 @@
-const moongose = require("mongoose");
-const Schema = moongose.Schema;
+const mongoose = require("mongoose");
+const Schema = mongose.Schema;
 
 //creating Examinee schema
 const ExamineeSchema = new Schema({
-  name: { type: String, required: true },
+  name: { type: String },
   email: { type: String, required: true },
   password: { type: String, required: true },
   done_tests: [
-    { type: moongose.Schema.Types.ObjectId, ref: "examineetestdetails" },
+    { type: mongoose.Schema.Types.ObjectId, ref: "examineetestdetails" },
   ],
+  Upcoming_test: { type: mongoose.Schema.Types.ObjectId, ref: "test" },
 });
 
 //creating  Examinee model
-const Examinee = moongose.model("examinee", ExamineeSchema);
+const Examinee = mongoose.model("examinee", ExamineeSchema);
 
 module.exports = Examinee;

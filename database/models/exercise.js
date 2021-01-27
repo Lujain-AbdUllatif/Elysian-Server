@@ -1,13 +1,13 @@
-const moongose = require("mongoose");
-const Schema = moongose.Schema;
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 const ImagesSchema = require("./schemas/ImagesSchema");
 
 const ExerciseSchema = new Schema({
   name: String,
-  images: [ImagesSchema],
-  questions: [{ type: moongose.Schema.Types.ObjectId, ref: "question" }],
+  images: [{ type: ImagesSchema, required: true }],
+  questions: [{ type: mongoose.Schema.Types.ObjectId, ref: "question" }],
 });
 
-const Exercise = moongose.model("exercise", ExerciseSchema);
+const Exercise = mongoose.model("exercise", ExerciseSchema);
 
 module.exports = Exercise;
