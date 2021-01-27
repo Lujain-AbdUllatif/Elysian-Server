@@ -1,7 +1,7 @@
 require("dotenv").config();
 const ExamineeModel = require("../../database/models/examinee");
 const bcrypt = require("bcryptjs");
-const { tokenGenerator } = require("../utils");
+const { tokenGenerator, errorGenerator } = require("../utils");
 
 const signin = (req, res, next) => {
   const { email, password } = req.body;
@@ -12,22 +12,21 @@ const signin = (req, res, next) => {
           const { _id: id, password: dbPassword } = response;
           bcrypt.compare(password, dbPassword).then((match) => {
             if (!match)
-              if (!match) res.status(403).send("Passwords DON'T match");
+              if (!match)
+                return next(errorGenerator(403, "Passwords DON'T match"));
             const access_token = tokenGenerator({ id, role: "tester" });
             res.status(200).send({ access_token });
           });
         } else {
-          res.status(404).send("Email not found");
+          return next(errorGenerator(404, "Email not found"));
         }
       })
       .catch((err) => {
         console.log(err);
-        const error = new Error("Server Error");
-        error.status = 500;
-        next(error);
+        return next(errorGenerator(500, "Server Error"));
       });
   } else {
-    res.status(400).send("Missing email or password");
+    return next(errorGenerator(400, "Missing email or password"));
   }
 };
 

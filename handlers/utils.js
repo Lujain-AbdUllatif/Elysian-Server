@@ -9,4 +9,10 @@ const tokenGenerator = (obj) => {
   return token;
 };
 
-module.exports = { tokenGenerator };
+const errorGenerator = (statusCode, msg) => {
+  const err = new Error(msg);
+  err.status = statusCode;
+  return err;
+};
+
+module.exports = { tokenGenerator, errorGenerator };
