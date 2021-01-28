@@ -18,11 +18,13 @@ const getAllExaminees = async (req, res, next) => {
       _id: {
         $in: examinees_ids,
       },
-    }).select({ password: 0 });
+    })
+      .populate({ path: "done_tests" })
+      .select({ password: 0 });
     return res.status(200).json(examineesObj);
   } catch (error) {
     console.log(error);
-    return next(errorGenerator(400, "Server Error"));
+    return next(errorGenerator(500, "Server Error"));
   }
 };
 

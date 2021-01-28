@@ -15,12 +15,13 @@ const getAllQuestions = require("../handlers/tester/getAllQuestions");
 const addQuestions = require("../handlers/tester/addQuestions");
 const addExercise = require("../handlers/tester/addExercise");
 const getExercises = require("../handlers/tester/getExercises");
+const verifyUser = require("../middlewares/auth");
+const getTestMiddleware = require("../middlewares/getTestMiddleware");
 
 //routes
 router.post("/tester/signup", signup);
 
 router.post("/tester/maketest", addTest);
-router.post("/tester/signin", handleSignIn);
 
 router.post("/tester/signin", signIn);
 // router.post("/tester/test", addTest);
@@ -31,5 +32,6 @@ router.post("/tester/examinees", getAllExaminees);
 router.get("/tester/questions/:exerciseid", getAllQuestions);
 router.post("/tester/addExercise", addQuestions, addExercise);
 router.get("/tester/getExercises", getExercises);
+router.post("/tester/tests", verifyUser("tester"), getTestMiddleware);
 
 module.exports = router;

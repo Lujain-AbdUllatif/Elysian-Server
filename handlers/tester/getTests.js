@@ -1,5 +1,6 @@
 const Test = require("../../database/models/test");
 const getAllTests = (req, res, next) => {
+  // const { id } = req.body;
   Test.find()
     .populate({
       path: "exercises",
