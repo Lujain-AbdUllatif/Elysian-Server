@@ -17,28 +17,35 @@ const getTestQuery = (obj, res, next) => {
       console.log(err);
       return next(errorGenerator(400, "No Such test"));
     });
-  // .then((tests) => {
-  //   res.status(201).json({
-  //     confirmation: "success",
-  //     data: tests,
-  //   });
-  // })
-  // .catch((err) => {
-  //   res.status(400).json({
-  //     confirmation: "fail",
-  //     message: err.message,
-  //   });
-  // });
 };
-// MUST GET THE TEST BY THE ID OR THE TESTER THUS WE MUST CHANGE THE DATABASE AND PUT THE TESTER ID IN THE TEST SCHEMA
+
+const getAllTestsQuery = (arr, res, next) => {
+  return Test.find({
+    _id: {
+      $in: arr,
+    },
+  })
+    .populate({
+      path: "exercises",
+      populate: {
+        path: "questions",
+        model: "question",
+      },
+    })
+    .then((response) => {
+      return res.status(200).send({ data: response });
+    })
+    .catch((err) => {
+      console.log(err);
+      return next(errorGenerator(400, "No Such test"));
+    });
+};
 
 const getTestMiddleware = (req, res, next) => {
-  const { id, role, test_id } = req.body;
-  console.log("ROLE >> ", role);
-  console.log("ID >> ", id);
+  const { id, role, test_id, tests_id } = req.body;
   if (role === "tester") {
     if (test_id === "all") {
-      getTestQuery({}, res, next);
+      getAllTestsQuery(tests_id, res, next);
     } else {
       getTestQuery({ _id: test_id }, res, next);
     }
