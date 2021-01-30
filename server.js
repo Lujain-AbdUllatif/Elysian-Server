@@ -10,7 +10,7 @@ const examineeRouter = require("./routers/examineeRouter");
 const testerRouter = require("./routers/testerRouter");
 
 app.use(cors());
-app.use(express.json());
+app.use(express.json({ limit: "25mb" }));
 
 /***************************************/
 const verifyUser = require("./middlewares/auth");

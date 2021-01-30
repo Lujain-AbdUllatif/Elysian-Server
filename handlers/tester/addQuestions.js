@@ -2,7 +2,7 @@ const Question = require("../../database/models/question");
 
 const addQuestions = async (req, res, next) => {
   const questions = req.body.data.questions;
-  //console.log("===>>>", questions);
+  console.log("===>>>", questions);
   try {
     const newQuestions = await Promise.all(
       questions.map(async (q) => {

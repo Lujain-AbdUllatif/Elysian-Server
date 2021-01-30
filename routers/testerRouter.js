@@ -20,7 +20,7 @@ const getExercises = require("../handlers/tester/getExercises");
 router.post("/tester/signup", signup);
 
 router.post("/tester/maketest", addTest);
-router.post("/tester/signin", handleSignIn);
+// router.post("/tester/signin", handleSignIn);
 
 router.post("/tester/signin", signIn);
 // router.post("/tester/test", addTest);
