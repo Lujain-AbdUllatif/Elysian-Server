@@ -22,10 +22,7 @@ const getTestMiddleware = require("../middlewares/getTestMiddleware");
 router.post("/tester/signup", signup);
 
 router.post("/tester/maketest", addTest);
-<<<<<<< HEAD
 // router.post("/tester/signin", handleSignIn);
-=======
->>>>>>> f5c37b66056a8301f3bdfe7a83cea20dcecb0674
 
 router.post("/tester/signin", signIn);
 // router.post("/tester/test", addTest);
