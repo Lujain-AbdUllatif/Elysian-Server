@@ -14,7 +14,7 @@ const signin = (req, res, next) => {
             if (!match)
               if (!match)
                 return next(errorGenerator(403, "Passwords DON'T match"));
-            const access_token = tokenGenerator({ id, role: "tester" });
+            const access_token = tokenGenerator({ id, role: "examinee" });
             res.status(200).send({ access_token });
           });
         } else {
