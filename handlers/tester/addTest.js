@@ -1,7 +1,13 @@
+const Exercise = require("../../database/models/exercise");
 const Test = require("../../database/models/test");
 
 const addTest = async (req, res, next) => {
+  console.log("hereeeeee: ", req.body);
   const { name, time, exercises } = req.body;
+  console.log(name);
+  console.log(time);
+  console.log(exercises);
+
   if (name && time && exercises) {
     const saveTest = new Test({
       name,
@@ -19,6 +25,7 @@ const addTest = async (req, res, next) => {
       return next(err);
     }
   } else {
+    console.log("here here here: ", req.body);
     res.status(400).send("missing fields");
   }
 };
