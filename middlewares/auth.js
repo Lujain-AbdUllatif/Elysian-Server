@@ -9,11 +9,12 @@ const verifyUser = (userRole) => {
     if (access_token) {
       try {
         const decrypt_access_token = jwt.verify(access_token, SECRET);
-        const { id, role, tests_id } = jwt.verify(access_token, SECRET);
+        // const { id, role, tests_id } = jwt.verify(access_token, SECRET);
+        const { id, role } = jwt.verify(access_token, SECRET);
         if (decrypt_access_token.role === userRole) {
           req.body.id = id;
           req.body.role = role;
-          req.body.tests_id = tests_id;
+          // req.body.tests_id = tests_id;
           return next();
         } else {
           return next(

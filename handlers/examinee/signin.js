@@ -9,13 +9,16 @@ const signin = (req, res, next) => {
     ExamineeModel.findOne({ email })
       .then((response) => {
         if (response) {
-          const { _id: id, password: dbPassword } = response;
+          const { _id: id, password: dbPassword, upcoming_test } = response;
           bcrypt.compare(password, dbPassword).then((match) => {
             if (!match)
               if (!match)
                 return next(errorGenerator(403, "Passwords DON'T match"));
-            const access_token = tokenGenerator({ id, role: "examinee" });
-            res.status(200).send({ access_token });
+            const access_token = tokenGenerator({
+              id,
+              role: "examinee",
+            });
+            res.status(200).send({ access_token, upcoming_test });
           });
         } else {
           return next(errorGenerator(404, "Email not found"));
