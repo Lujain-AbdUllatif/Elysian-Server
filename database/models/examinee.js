@@ -9,7 +9,7 @@ const ExamineeSchema = new Schema({
   done_tests: [
     { type: mongoose.Schema.Types.ObjectId, ref: "examineeTestDetail" },
   ],
-  Upcoming_test: { type: mongoose.Schema.Types.ObjectId, ref: "test" },
+  upcoming_test: { type: mongoose.Schema.Types.ObjectId, ref: "test" },
 });
 
 //creating  Examinee model
