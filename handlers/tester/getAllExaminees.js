@@ -1,10 +1,12 @@
 // Here I will get an array of examinees' Id and I will return the examinees details
+// const mongoose = require("mongoose");
 const mongoose = require("mongoose");
 const ExamineesModel = require("../../database/models/examinee");
 const { errorGenerator } = require("../utils");
 
 const getAllExaminees = async (req, res, next) => {
   const { examinees_ids } = req.body;
+  console.log(examinees_ids);
   if (!Array.isArray(examinees_ids)) {
     return next(
       errorGenerator(
@@ -14,13 +16,12 @@ const getAllExaminees = async (req, res, next) => {
     );
   }
   try {
-    const examineesObj = await ExamineesModel.find({
+    let examineesObj = await ExamineesModel.find({
       _id: {
         $in: examinees_ids,
       },
-    })
-      .populate({ path: "done_tests" })
-      .select({ password: 0 });
+    }).populate({ path: "done_tests" });
+    // .select({ password: 0 });
     return res.status(200).json(examineesObj);
   } catch (error) {
     console.log(error);

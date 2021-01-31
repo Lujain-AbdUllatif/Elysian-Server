@@ -1,5 +1,5 @@
-const moongose = require("mongoose");
-const Schema = moongose.Schema;
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 const ImageSchema = require("./schemas/ImagesSchema");
 
 const examineTestDetailsSchema = new Schema({
@@ -10,7 +10,7 @@ const examineTestDetailsSchema = new Schema({
   answers: [[ImageSchema]],
 });
 
-const examineTestDetail = moongose.model(
+const examineTestDetail = mongoose.model(
   "examineeTestDetail",
   examineTestDetailsSchema
 );

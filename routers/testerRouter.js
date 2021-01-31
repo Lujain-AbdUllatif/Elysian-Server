@@ -18,6 +18,10 @@ const verifyUser = require("../middlewares/auth");
 router.post("/tester/signup", signup);
 // Sign-in
 router.post("/tester/signin", signIn);
+// Make Test
+router.post("/tester/maketest", verifyUser("tester"), addTest);
+// View Tests
+router.post("/tester/tests", verifyUser("tester"), getTestMiddleware);
 // Make Exercise
 router.post(
   "/tester/addExercise",
@@ -26,12 +30,9 @@ router.post(
   addExercise
 );
 // View Exercises
-router.post("/tester/exercises", getAllExercises);
-// Make Test
-router.post("/tester/maketest", verifyUser("tester"), addTest);
+router.post("/tester/exercises", verifyUser("tester"), getAllExercises);
+
 // Get all examinees
 router.post("/tester/examinees", getAllExaminees);
-// View Tests
-router.post("/tester/tests", verifyUser("tester"), getTestMiddleware);
 
 module.exports = router;
