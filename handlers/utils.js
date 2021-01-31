@@ -15,4 +15,36 @@ const errorGenerator = (statusCode, msg) => {
   return err;
 };
 
-module.exports = { tokenGenerator, errorGenerator };
+// SPECIFIC QUERIES
+const Test = require("../database/models/test");
+
+const getTestQuery = (obj) => {
+  return Test.find(obj).populate({
+    path: "exercises",
+    populate: {
+      path: "questions",
+      model: "question",
+    },
+  });
+};
+
+const getAllTestsQuery = (arr) => {
+  return Test.find({
+    _id: {
+      $in: arr,
+    },
+  }).populate({
+    path: "exercises",
+    populate: {
+      path: "questions",
+      model: "question",
+    },
+  });
+};
+
+module.exports = {
+  tokenGenerator,
+  errorGenerator,
+  getTestQuery,
+  getAllTestsQuery,
+};
