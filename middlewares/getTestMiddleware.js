@@ -42,14 +42,16 @@ const getAllTestsQuery = (arr, res, next) => {
 };
 
 const getTestMiddleware = (req, res, next) => {
-  const { id, role, test_id, tests_id } = req.body;
+  const { id, role } = req.body;
   if (role === "tester") {
-    if (test_id === "all") {
+    const { tests_id } = req.body;
+    if (tests_id) {
       getAllTestsQuery(tests_id, res, next);
     } else {
-      getTestQuery({ _id: test_id }, res, next);
+      next(errorGenerator(400, "Missing tests_id"));
     }
   } else if (role === "examinee") {
+    const { test_id } = req.body;
     if (test_id) {
       try {
         getTestQuery({ _id: test_id }, res, next);
