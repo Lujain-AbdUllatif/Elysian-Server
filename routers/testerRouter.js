@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-//tester handlers imports
+//tester handlers imports;
 const signup = require("../handlers/tester/signup");
 const signIn = require("../handlers/tester/signin");
 const addExercise = require("../handlers/tester/addExercise");
@@ -19,16 +19,21 @@ router.post("/tester/signup", signup);
 
 // Sign-in
 router.post("/tester/signin", signIn);
-
-// Make Exercise
-router.post("/tester/addExercise", addQuestions, addExercise);
-// View Exercises
-router.post("/tester/exercises", getAllExercises);
 // Make Test
-router.post("/tester/maketest", addTest);
-// Get all examinees
-router.post("/tester/examinees", getAllExaminees);
+router.post("/tester/maketest", verifyUser("tester"), addTest);
 // View Tests
 router.post("/tester/tests", verifyUser("tester"), getTestMiddleware);
+// Make Exercise
+router.post(
+  "/tester/addExercise",
+  verifyUser("tester"),
+  addQuestions,
+  addExercise
+);
+// View Exercises
+router.post("/tester/exercises", verifyUser("tester"), getAllExercises);
+
+// Get all examinees
+router.post("/tester/examinees", getAllExaminees);
 
 module.exports = router;

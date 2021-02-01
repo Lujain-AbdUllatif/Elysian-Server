@@ -9,7 +9,6 @@ const getTestMiddleware = (req, res, next) => {
   if (role === "tester") {
     const { tests_id } = req.body;
     if (tests_id) {
-      console.log(tests_id);
       getAllTestsQuery(tests_id)
         .then((response) => {
           return res.status(200).send({ data: response });
