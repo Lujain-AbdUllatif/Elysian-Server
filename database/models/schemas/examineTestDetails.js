@@ -1,6 +1,6 @@
-const moongose = require("mongoose");
-const Schema = moongose.Schema;
-const ImageSchema = require("./schemas/ImagesSchema");
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+const ImageSchema = require("./ImagesSchema");
 
 const examineTestDetailsSchema = new Schema({
   test_id: { type: mongoose.Schema.Types.ObjectId, ref: "test" },
@@ -10,9 +10,9 @@ const examineTestDetailsSchema = new Schema({
   answers: [[ImageSchema]],
 });
 
-const examineTestDetail = moongose.model(
-  "examineeTestDetail",
-  examineTestDetailsSchema
-);
+// const examineTestDetail = moongose.model(
+//   "examineeTestDetail",
+//   examineTestDetailsSchema
+// );
 
-module.exports = examineTestDetail;
+module.exports = examineTestDetailsSchema;
