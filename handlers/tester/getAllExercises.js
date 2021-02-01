@@ -10,7 +10,6 @@ const getAllExercises = (req, res, next) => {
         return exercisesArr;
       })
       .then((exercises) => {
-        console.log(exercises);
         const ids = [];
         const filteredEx = exercises.filter((ex) => {
           if (ids.indexOf(ex._id) !== -1) return false;
