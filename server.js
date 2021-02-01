@@ -12,12 +12,12 @@ const testerRouter = require("./routers/testerRouter");
 app.use(cors());
 app.use(express.json({ limit: "25mb" }));
 
-/***************************************/
+/**************************************/
 const verifyUser = require("./middlewares/auth");
 app.get("/", verifyUser("tester"), function (req, res) {
   res.status(200).send("Hello World");
 });
-/***************************************/
+/**************************************/
 app.all(/examinee/, examineeRouter);
 app.all(/tester/, testerRouter);
 
