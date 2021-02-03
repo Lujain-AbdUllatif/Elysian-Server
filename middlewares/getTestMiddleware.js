@@ -7,7 +7,11 @@ const {
 const getTestMiddleware = (req, res, next) => {
   const { id, role } = req.body;
   if (role === "tester") {
-    const { tests_id } = req.body;
+    let { tests_id } = req.body;
+    console.log("This is the request body:", req.body);
+    console.log("test_id:", tests_id);
+    // tests_id = JSON.parse(tests_id);
+
     if (tests_id) {
       getAllTestsQuery(tests_id)
         .then((response) => {
