@@ -1,7 +1,11 @@
 const { errorGenerator, getAllTestsQuery } = require("../utils");
 
 const getAllExercises = (req, res, next) => {
-  const { tests_id } = req.body;
+  const {
+    tests_id: { tests_id },
+  } = req.body;
+  console.log("testid:", tests_id);
+
   if (tests_id) {
     getAllTestsQuery(tests_id)
       .then((response) => {

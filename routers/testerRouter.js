@@ -16,6 +16,7 @@ const verifyUser = require("../middlewares/auth");
 /*******ROUTES*******/
 // Sign-up
 router.post("/tester/signup", signup);
+
 // Sign-in
 router.post("/tester/signin", signIn);
 // Make Test
