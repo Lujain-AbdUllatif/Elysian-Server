@@ -42,14 +42,14 @@ Route: http://localhost:4000/examinee/signup
 Method: POST  
 Request body : should be an object like  
 {  
-	"name": String (e.g. "kobe bryant"),  
-	"email":String (e.g. "kobe.bryant@gmail.com"),  
-	"pass":String (e.g. "123")  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: String (e.g. "kobe bryant"),  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email:String (e.g. "kobe.bryant@gmail.com"),  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pass:String (e.g. "123")  
 }  
 Response body : should be object like  
 {  
-    token: access_token as a String,  
-    msg: ”email created successfully”  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;token: access_token as a String,  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: ”email created successfully”  
 }  
 <br /> 
 <br /> 
@@ -59,14 +59,14 @@ Route: http://localhost:4000/tester/signin
 Method: POST  
 Request body : should be an object like  
 {  
-  email: String (e.g. "tester1@gmail.com"),  
-password: String (e.g. "123")  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: String (e.g. "tester1@gmail.com"),  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;password: String (e.g. "123")  
 }  
 Response body : should be object like  
 {  
-  access_token: access_token as a String,  
-	tests_id: [array of ids],  
-	examinees_id: [array of ids]  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;access_token: access_token as a String,  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tests_id: [array of ids],  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;examinees_id: [array of ids]  
 }  
 <br /> 
 <br /> 
@@ -76,13 +76,13 @@ Route: http://localhost:4000/examinee/signin
 Method: POST  
 Request body : should be an object like  
 {  
-  email: String (e.g. "examinee1@gmail.com"),  
-  password: String (e.g. "123")  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: String (e.g. "examinee1@gmail.com"),  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;password: String (e.g. "123")  
 }  
 Response body : should be object like  
 {  
-  access_token: access_token as a String,  
-  upcoming_test: id as a String  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;access_token: access_token as a String,  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;upcoming_test: id as a String  
 }  
 <br /> 
 <br />
@@ -92,15 +92,15 @@ Route: http://localhost:4000/tester/addExercise
 Method: POST  
 Request body:   
 {  
-  data: {  
-  name: String (e.g. "Animals"),  	
-  images: Array of Objects (e.g. [{ "number": 1, "url": "http://animals.jpg"},{ "number":2, "url": "http://animals.jpg"}]),  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data: {  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: String (e.g. "Animals"),  	
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;images: Array of Objects (e.g. [{ "number": 1, "url": "http://animals.jpg"},{ "number":2, "url": "http://animals.jpg"}]),  
   questions: Array of Objects (e.g. [{"question" : "what is that animal" ,"keyword" :  "animal" , "answers" : ["1","2","3"]}, {"question" : "we sit on it" , "keyword" : "sit" , "answers" : ["1","3"]}])  
   }  
 }  
 Response body : should be array likewise  
 {  
-  msg: "exercise added successfully!"  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: "exercise added successfully!"  
 }  
 <br />
 <br />
@@ -110,7 +110,7 @@ Route: http://localhost:4000/tester/exercises
 Method: POST  
 Request body : should be an object like  
 {  
-	"tests_id": [array of ids] (e.g. ["6011a48a6bc8aed7b7f4911a","6011a4d16bc8aed7b7f4911b"])  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"tests_id": [array of ids] (e.g. ["6011a48a6bc8aed7b7f4911a","6011a4d16bc8aed7b7f4911b"])  
 }  
 Response body : should be object like  
 {   
@@ -126,17 +126,17 @@ Route: http://localhost:4000/tester/maketest
 Method: POST  
 Request body : should be an object like  
 {  
-	name: String (e.g. "test1"),  
-	time: Number,  
-  exercises:[array of ids]  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: String (e.g. "test1"),  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time: Number,  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exercises:[array of ids]  
 }  
 Response body : should be object like  
 {  
-  exercises: Array of IDs (e.g ["601437c113920b0cf7c28052"]),  
-  _id: String (e.g. "60145f2cc01a322aeea6b538"),  
-  name: String (e.g."test1"),  
-  time: Number (e.g. 52),  
-  __v: 0  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exercises: Array of IDs (e.g ["601437c113920b0cf7c28052"]),  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_id: String (e.g. "60145f2cc01a322aeea6b538"),  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: String (e.g."test1"),  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time: Number (e.g. 52),  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__v: 0  
 }  
 <br />
 <br />
@@ -146,25 +146,24 @@ Route: http://localhost:4000/tester/examinees
 Method: POST  
 Request body : should be an object like  
 {  
-	"examinees_ids": Array of IDs (e.g. ["600feed49723372560d7a8c4", "60102668807d53441465eeb5"])  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"examinees_ids": Array of IDs (e.g. ["600feed49723372560d7a8c4", "60102668807d53441465eeb5"])  
 }  
 Response body : should be object like  
 {[{  
-    done_tests: Array of IDs,   
-    Upcoming_tests: String "ID",  
-    _id: String (e.g. "600feed49723372560d7a8c4"),  
-    name: String (e.g. "examinee1"),  
-    email:String (e.g. "examinee1@gmail.com"),  
-    __v: 0  
-    },  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;done_tests: Array of IDs,   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Upcoming_tests: String "ID",  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_id: String (e.g. "600feed49723372560d7a8c4"),  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: String (e.g. "examinee1"),  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email:String (e.g. "examinee1@gmail.com"),  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},  
 
-  	{  
-    done_tests: Array of tests Ids,  
-    Upcoming_tests: String "ID",   
-    _id: "60102668807d53441465eeb5",  
-    name: "examinee2",  
-    email: "examinee2@gmail.com",  
-    __v: 0  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;done_tests: Array of tests Ids,  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Upcoming_tests: String "ID",   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_id: "60102668807d53441465eeb5",  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: "examinee2",  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: "examinee2@gmail.com",  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__v: 0  
 }]}  
 <br />
 <br />
@@ -174,14 +173,14 @@ Route: http://localhost:4000/tester/tests
 Method: POST  
 Request body : should be an object like  
 {  
-	tests_id :[array with ids]  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tests_id :[array with ids]  
 }  
 Response body : should be object like  
 {  
-	data:   
-[array of objects each object is a test]>>[{test1}, {test2}...]
-test_Object is >>>_id, name, time, exercises: [{ex1},{ex2}, … ]
-Exercises >>> {_id, name, images:[ImagesSchema], questions: [QuestionsSchema]}  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data:   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[array of objects each object is a test]>>[{test1}, {test2}...]
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;test_Object is >>>_id, name, time, exercises: [{ex1},{ex2}, … ]
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exercises >>> {_id, name, images:[ImagesSchema], questions: [QuestionsSchema]}  
 }  
 <br />
 <br />
@@ -191,14 +190,14 @@ Route: http://localhost:4000/examinee/test
 Method: POST  
 Request body : should be an object like  
 {  
-	test_id : String "ID"  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;test_id : String "ID"  
 }  
 Response body : should be object like:  
 {  
-	data:   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data:   
 [array of objects each object is a test]>>[{test1}, {test2}...]
-test_Object is >>>_id, name, time, exercises: [{ex1},{ex2}, … ]
-Exercises >>> {_id, name, images:[ImagesSchema], questions: [QuestionsSchema]}  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;test_Object is >>>_id, name, time, exercises: [{ex1},{ex2}, … ]
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exercises >>> {_id, name, images:[ImagesSchema], questions: [QuestionsSchema]}  
 }  
 <br />
 <br />
@@ -209,32 +208,32 @@ Route: http://localhost:4000/examinee/answers
 Method: POST  
 Request body : should be an object like  
 {  
-	test_status: "done",  
-	score: Number,  
-	date: String "09.02.2021",   
-	overall_time: Number,   
-	test_id: String "6011a48a6bc8aed7b7f4911a”  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;test_status: "done",  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;score: Number,  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;date: String "09.02.2021",   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;overall_time: Number,   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;test_id: String "6011a48a6bc8aed7b7f4911a”  
 }  
 Response body : should be object like  
 {  
-	"msg": "Saved Successfully"  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: "Saved Successfully"  
 }  
 - If the test *isn’t done*:
 Route: http://localhost:4000/examinee/answers  
 Method: POST  
 Request body : should be an object like  
 {  
-	test_status: "done",  
-	Test_id: String “ID”,  
-	exercise_id: String “ID”,   
-	question_id: String “ID”,  
-	answers: Array of arrays of numbers (e.g [[2], [1,2]]),   
-	Final_status: “fail” OR “success”  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;test_status: "done",  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Test_id: String “ID”,  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exercise_id: String “ID”,   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;question_id: String “ID”,  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;answers: Array of arrays of numbers (e.g [[2], [1,2]]),   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Final_status: “fail” OR “success”  
 }  
 Response body : should be object like  
 {  
-	result: {object of the record added}  
-	"msg": "The answer was saved successfully"   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result: {object of the record added}  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: "The answer was saved successfully"   
 }  
 
 
