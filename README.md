@@ -21,9 +21,9 @@ Note that: *access_token should be included in all requests*
 
 1. **Tester: Sign-up**
 
-Route: http://localhost:4000/tester/signup \n
-Method: POST \n
-Request body : should be an object like \n
+Route: http://localhost:4000/tester/signup \\n
+Method: POST \\n
+Request body : should be an object like \\n
 {
 	"name": String (e.g. "muhammad awwad"),
 	"email": String (e.g "hammode.awad@gmail.com"),
