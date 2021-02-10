@@ -88,7 +88,7 @@ const answersHandler = (req, res, next) => {
                 { $push: { done_tests: done_test_id } }
               )
                 .then((result) => {
-                  res.status(200).send({ msg: "Saved Succeffully" });
+                  res.status(200).send({ msg: "Saved Successfully" });
                 })
 
                 .catch((err) => {
