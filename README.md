@@ -244,11 +244,11 @@ Response body : should be object like
 - Insomnia
 
 ## Developers:
-- @ahmad420
-- @Lujain-AbdUllatif
-- @muhammadawwad9
-- @OmklthomAmara
-- @shoogkabiya
+- [Ahmad Abu-Fani] (https://github.com/ahmad420)
+- [Lujain Abd-Ullatif] (https://github.com/Lujain-AbdUllatif)
+- [Muhammad Awwad] (https://github.com/muhammadawwad9)
+- [Omklthom Amara] (https://github.com/OmklthomAmara)
+- [Shoog Kabiya] (https://github.com/shoogkabiya)
 
 
 
