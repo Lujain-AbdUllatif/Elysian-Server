@@ -21,21 +21,21 @@ Note that: *access_token should be included in all requests*
 
 1. **Tester: Sign-up**
 
-Route: http://localhost:4000/tester/signup \\n
-Method: POST \\n
-Request body : should be an object like \\n
-{
-	"name": String (e.g. "muhammad awwad"),
-	"email": String (e.g "hammode.awad@gmail.com"),
-	"pass":String (e.g. "123")
-}
-Response body : should be object like
-{
-    token: access_token as a String,
-    msg: ”email created successfully”
-}
-
-
+Route: http://localhost:4000/tester/signup   
+Method: POST  
+Request body : should be an object like   
+{  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: String (e.g. "muhammad awwad"),  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: String (e.g "hammode.awad@gmail.com"),  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pass:String (e.g. "123")  
+}  
+Response body : should be object like  
+{  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;token: access_token as a String,  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: ”email created successfully”  
+}  
+  
+  
 2. **Examinee: Sign-up**
 
 Route: http://localhost:4000/examinee/signup
