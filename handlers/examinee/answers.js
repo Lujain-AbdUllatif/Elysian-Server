@@ -1,16 +1,21 @@
+const mongoose = require("mongoose");
 const { errorGenerator } = require("../utils");
 // Requiring models
-const questionAnswer = require("../../database/models/questionAnswers");
+const QuestionAnswer = require("../../database/models/questionAnswers");
+const {
+  examineTestDetail,
+} = require("../../database/models/examineTestDetails");
+const Examinee = require("../../database/models/examinee");
 
 const answersHandler = (req, res, next) => {
   const { test_status, id: examinee_id } = req.body;
-  /**********PART ONE UN-DONE TEST**********/
-  // First we need to post the answer to the questionAnswers model
+  /**********PART I : UN-DONE TEST**********/
+  // First we need to post the answer to the QuestionAnswers model
   if (test_status === "undone") {
     var { test_id, exercise_id, question_id, answers, final_status } = req.body;
+
     if (test_id && exercise_id && question_id && answers && final_status) {
-      console.log("ANSWERSSSS>>>", typeof answers[0][0]);
-      const recordSchema = new questionAnswer({
+      const recordSchema = new QuestionAnswer({
         examinee_id,
         test_id,
         exercise_id,
@@ -18,7 +23,40 @@ const answersHandler = (req, res, next) => {
         answers,
         final_status,
       });
-      console.log(recordSchema);
+      recordSchema
+        .save()
+        .then((result) => {
+          // Then; we need to take the ID of the QuestionAnswer Record and put it in examineeTestDetailsSchema in the answers push it to the array
+          const { _id: answer_id } = result;
+
+          examineTestDetail
+            .findOne({ test_id: test_id })
+            .then((result) => {
+              console.log("RESULT:::: ", result);
+
+              result.answers.push(answer_id);
+              console.log(result);
+              result
+                .save()
+                .then((re) => {
+                  console.log(re);
+                })
+                .catch((err) => {
+                  return next(errorGenerator(500, "Server Error"));
+                });
+              return res
+                .status(201)
+                .send({ result, msg: "The answer was saved successfully" });
+            })
+            .catch((err) => {
+              console.log(err);
+              return next(errorGenerator(500, "Server Error"));
+            });
+        })
+        .catch((err) => {
+          console.log(err);
+          next(errorGenerator(500, "Server Error"));
+        });
     } else {
       return next(
         errorGenerator(
@@ -28,23 +66,53 @@ const answersHandler = (req, res, next) => {
       );
     }
   }
-  // Then; we need to take the ID of the questionAnswer Record and put it in examineeTestDetailsSchema in the answers push it to the array UPDATE ??
-  //   PersonModel.update(
-  // { _id: person._id },
-  // { $push: { friends: friend } },
-  // done
-  // );
-  /**********PART ONE DONE TEST**********/
-  //Then; when the test_status is done, we need to fill the date, score and overall_time in the examineeTestDetails Schema
+  /**********PART II : DONE TEST**********/
+  //When the test_status is done, we need to fill the date, score and overall_time in the examineeTestDetails Schema
   else if (test_status === "done") {
-    console.log("test_status>", test_status);
-  }
-  //Finally we need to place the DONE_examineeTestDetails ID in the done_tests in the examinee model
-  else {
+    const { score, date, overall_time, test_id } = req.body;
+    if (score && date && overall_time && test_id) {
+      examineTestDetail
+        .findOne({ test_id })
+        .then((result) => {
+          const { _id: test_details_id } = result;
+          result.score = score;
+          result.date = date;
+          result.overall_time = overall_time;
+          result
+            .save()
+            .then((result) => {
+              //Finally we need to place the DONE_examineeTestDetails ID in the done_tests in the examinee model
+              const { _id: done_test_id } = result;
+              Examinee.updateOne(
+                { _id: examinee_id },
+                { $push: { done_tests: done_test_id } }
+              )
+                .then((result) => {
+                  res.status(200).send({ msg: "Saved Succeffully" });
+                })
+
+                .catch((err) => {
+                  return next(errorGenerator(500, "Server Error"));
+                });
+            })
+            .catch((err) => {
+              return next(errorGenerator(500, "Server Error"));
+            });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      return next(
+        errorGenerator(
+          400,
+          "One of the fields is missing: score, date, overall_time"
+        )
+      );
+    }
+  } else {
     return next(errorGenerator(400, "test_status is missing"));
   }
-
-  return res.status(200).send({ msg: "EVERYTHING WILL BE GREAT :)" });
 };
 
 module.exports = answersHandler;
