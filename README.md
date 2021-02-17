@@ -246,14 +246,12 @@ Response body : should be object like
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: "The answer was saved successfully"   
 }  
 
-## built-by:
-- ES6
-- EXPRESS
-- NODE.JS
+## Built by
+- Node.js
+- Express.js
 - MongoDB
-- Insomnia
 
-## Developers:
+## Team
 - [Ahmad Abu-Fani](https://github.com/ahmad420)
 - [Lujain Abd-Ullatif](https://github.com/Lujain-AbdUllatif)
 - [Muhammad Awwad](https://github.com/muhammadawwad9)
