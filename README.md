@@ -21,7 +21,7 @@ Note that: *access_token should be included in all requests*
 
 1. **Tester: Sign-up**
 
-Route: http://localhost:4000/tester/signup   
+> Route: http://localhost:4000/tester/signup   
 Method: POST  
 Request body : should be an object like   
 {  
@@ -38,7 +38,7 @@ Response body : should be object like
 <br /> 
 2. **Examinee: Sign-up**
 
-Route: http://localhost:4000/examinee/signup  
+> Route: http://localhost:4000/examinee/signup  
 Method: POST  
 Request body : should be an object like  
 {  
@@ -55,7 +55,7 @@ Response body : should be object like
 <br /> 
 3. **Tester: Sign-in**
 
-Route: http://localhost:4000/tester/signin  
+> Route: http://localhost:4000/tester/signin  
 Method: POST  
 Request body : should be an object like  
 {  
@@ -72,7 +72,7 @@ Response body : should be object like
 <br /> 
 4. **Examinee: Sign-in**
 
-Route: http://localhost:4000/examinee/signin  
+> Route: http://localhost:4000/examinee/signin  
 Method: POST  
 Request body : should be an object like  
 {  
@@ -88,7 +88,7 @@ Response body : should be object like
 <br />
 5. **Tester Make Exercise** 
 
-Route: http://localhost:4000/tester/addExercise  
+> Route: http://localhost:4000/tester/addExercise  
 Method: POST  
 Request body:   
 {  
@@ -106,7 +106,7 @@ Response body : should be array likewise
 <br />
 6. **Tester: View Exercises**
 
-Route: http://localhost:4000/tester/exercises  
+> Route: http://localhost:4000/tester/exercises  
 Method: POST  
 Request body : should be an object like  
 {  
@@ -122,7 +122,7 @@ Exercises >>> {_id, name, images:[ImagesSchema], questions: [QuestionsSchema]}
 <br />
 7. **Tester: make test**
 
-Route: http://localhost:4000/tester/maketest  
+> Route: http://localhost:4000/tester/maketest  
 Method: POST  
 Request body : should be an object like  
 {  
@@ -142,7 +142,7 @@ Response body : should be object like
 <br />
 8. **Tester: Get All Examinee**
 
-Route: http://localhost:4000/tester/examinees  
+> Route: http://localhost:4000/tester/examinees  
 Method: POST  
 Request body : should be an object like  
 {  
@@ -169,7 +169,7 @@ Response body : should be object like
 <br />
 9. **Tester: View Test**
 
-Route: http://localhost:4000/tester/tests  
+> Route: http://localhost:4000/tester/tests  
 Method: POST  
 Request body : should be an object like  
 {  
@@ -186,7 +186,7 @@ Response body : should be object like
 <br />
 10. **Examinee View Test**
 
-Route: http://localhost:4000/examinee/test  
+> Route: http://localhost:4000/examinee/test  
 Method: POST  
 Request body : should be an object like  
 {  
@@ -204,7 +204,7 @@ Response body : should be object like:
 11. **Examinee: Set Answers**
 
 - If the test is *done*:  
-Route: http://localhost:4000/examinee/answers  
+> Route: http://localhost:4000/examinee/answers  
 Method: POST  
 Request body : should be an object like  
 {  
@@ -219,7 +219,7 @@ Response body : should be object like
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: "Saved Successfully"  
 }  
 - If the test *isn’t done*:
-Route: http://localhost:4000/examinee/answers  
+> Route: http://localhost:4000/examinee/answers  
 Method: POST  
 Request body : should be an object like  
 {  
