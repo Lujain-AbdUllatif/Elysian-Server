@@ -36,6 +36,7 @@ Response body : should be object like
 }  
 <br /> 
 <br /> 
+
 2. **Examinee: Sign-up**  
 
 > Route: http://localhost:4000/examinee/signup  
@@ -53,6 +54,7 @@ Response body : should be object like
 }  
 <br /> 
 <br /> 
+
 3. **Tester: Sign-in**  
 
 > Route: http://localhost:4000/tester/signin  
@@ -69,7 +71,8 @@ Response body : should be object like
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;examinees_id: [array of ids]  
 }  
 <br /> 
-<br /> 
+<br />
+
 4. **Examinee: Sign-in**  
 
 > Route: http://localhost:4000/examinee/signin  
@@ -86,6 +89,7 @@ Response body : should be object like
 }  
 <br /> 
 <br />
+
 5. **Tester Make Exercise**   
 
 > Route: http://localhost:4000/tester/addExercise  
@@ -104,6 +108,7 @@ Response body : should be array likewise
 }  
 <br />
 <br />
+
 6. **Tester: View Exercises**  
 
 > Route: http://localhost:4000/tester/exercises  
@@ -120,6 +125,7 @@ Exercises >>> {_id, name, images:[ImagesSchema], questions: [QuestionsSchema]}
 }  
 <br />
 <br />
+
 7. **Tester: make test**  
 
 > Route: http://localhost:4000/tester/maketest  
@@ -140,6 +146,7 @@ Response body : should be object like
 }  
 <br />
 <br />
+
 8. **Tester: Get All Examinee**  
 
 > Route: http://localhost:4000/tester/examinees  
@@ -167,6 +174,7 @@ Response body : should be object like
 }]}  
 <br />
 <br />
+
 9. **Tester: View Test**  
 
 > Route: http://localhost:4000/tester/tests  
@@ -184,6 +192,7 @@ Response body : should be object like
 }  
 <br />
 <br />
+
 10. **Examinee View Test**  
 
 > Route: http://localhost:4000/examinee/test  
@@ -201,6 +210,7 @@ Response body : should be object like:
 }  
 <br />
 <br />
+
 11. **Examinee: Set Answers**  
 
 - If the test is *done*:  
