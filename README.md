@@ -246,7 +246,7 @@ Response body : should be object like
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: "The answer was saved successfully"   
 }  
 
-## Built by
+## Main Technologies
 - Node.js
 - Express.js
 - MongoDB
